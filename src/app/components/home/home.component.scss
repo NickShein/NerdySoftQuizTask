@@ -1,0 +1,41 @@
+.container{
+    background: #353535;
+}
+
+.custom-card {
+    width: 80%;
+    margin: 0 auto 40px;
+    background-color: #353535; /* Світло сірий фон */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+  }
+  .title{
+    font-size: 36px;
+    color: #ff8e8b;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #ffbc04;
+    text-shadow:0.5px 0.5px 0 #a05a58;
+  }
+  .subtitle{
+    font-size: 24px;
+    color: white;
+    text-shadow: 1px 1px 0 black;
+    padding-bottom: 5px;
+  }
+  
+  .play-button {
+    background: linear-gradient(45deg, #ff84b3, #ffa601); /* Помаранчево-рожевий градієнт */
+    color: rgb(227, 243, 246) !important;
+    margin-left: auto;
+  }
+  .play-button:hover{
+    transform: scale(1.05);
+  }
+  
+  mat-card-header {
+    background-color: #616161a8; /* Світло сірий фон для заголовка */
+  }
+
+  .color_text{
+    color: #ff84b3;
+    font-size: 30px;
+  }

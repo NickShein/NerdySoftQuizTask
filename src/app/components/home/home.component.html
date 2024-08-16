@@ -1,1 +1,12 @@
-<p>home works!</p>
+<mat-card class="custom-card" *ngFor="let item of categorizedArrays;let i = index">
+  <mat-card-header>
+    <mat-card-title class="title"> {{ i==9?'Mixed':item[1].category | titlecase }}</mat-card-title>
+    <mat-card-subtitle class="subtitle">Кількість запитань у вікторині: <span class="color_text">{{item.length}}</span></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Тут можна додати вміст картки -->
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" class="play-button" (click)="PlayQuizz(i)">Play Quizz</button>
+  </mat-card-actions>
+</mat-card>
