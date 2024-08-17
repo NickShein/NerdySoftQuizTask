@@ -1,1 +1,40 @@
-<p>finish works!</p>
+<div class="results-container">
+    <h1 class="main-header">Quiz Results</h1>
+    <div class="stats-container">
+      <div class="stat-column">
+        <div class="title">
+            <div class="icon star-icon"></div>
+        <h2 class="category-title">Points</h2>
+        </div>
+        <p class="stat-value">{{ answerPoint }}</p>
+      </div>
+      <div class="stat-column">
+        <div class="title">
+            <div class="icon clock-icon"></div>
+        <h2 class="category-title">Time Spent</h2>
+        </div>
+        <p class="stat-value">{{ timeInSeconds }} s</p>
+      </div>
+      <div class="stat-column">
+        <div class="title">
+            <div class="icon streak-icon"></div>
+        <h2 class="category-title">Longest Streak</h2>
+        </div>
+        <p class="stat-value">{{ longestSerie }}</p>
+      </div>
+      <div class="stat-column">
+        <div class="title">
+            <div class="icon correct-icon"></div>
+        <h2 class="category-title">Correct Answers</h2>
+        </div>
+        <p class="stat-value">{{ correctAnswers }}</p>
+      </div>
+      <div class="stat-column">
+        <div class="title">
+            <div class="icon time-icon"></div>
+            <h2 class="category-title">Longest Time on a Question</h2>
+        </div>
+        <p class="stat-value">{{ maxQuestionSpentTime }} ms</p>
+      </div>
+    </div>
+  </div>

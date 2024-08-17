@@ -8,7 +8,7 @@ import { FinishComponent } from './components/finish/finish.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Основний маршрут
-  { path: 'play', component: PlayComponent },
+  { path: 'play/:id', component: PlayComponent },
   { path: 'finish', component: FinishComponent },
   { path: '**', redirectTo: '' } // Для обробки невірних маршрутів
 ];

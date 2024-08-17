@@ -1,5 +1,6 @@
 .container{
-    background: #353535;
+    background: #111111;
+    padding: 20px 0;
 }
 
 .custom-card {
@@ -9,7 +10,7 @@
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
   }
   .title{
-    font-size: 36px;
+    font-size: 44px;
     color: #ff8e8b;
     margin-bottom: 20px;
     border-bottom: solid 1px #ffbc04;
@@ -38,4 +39,9 @@
   .color_text{
     color: #ff84b3;
     font-size: 30px;
+  }
+
+  ::ng-deep mdc-form-field{
+    width: 100%;
+    height: 100%;
   }

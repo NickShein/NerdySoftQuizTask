@@ -19,28 +19,5 @@ export class TriviaService {
       map(response => response.results)
     );
   }
-
-
-
-  // getSurveys(): Observable<Survey[]>{
-  //   return this.getQuestions().pipe(
-  //     map(response => {
-  //       const groupedByCategory: { [key: string]: TriviaQuestion[] } = {};
-
-  //       // Групуємо питання за категоріями
-  //       response.results.forEach(question => {
-  //         if (!groupedByCategory[question.category]) {
-  //           groupedByCategory[question.category] = [];
-  //         }
-  //         groupedByCategory[question.category].push(question);
-  //       });
-
-  //       // Створюємо масив опитувань з категоріями та кількістю питань
-  //       return Object.keys(groupedByCategory).map(category => ({
-  //         category,
-  //         questionCount: groupedByCategory[category].length
-  //       }));
-  //     })
-  //   );
-  // }
+  
 }

@@ -14,9 +14,11 @@ import { TriviaEffects } from './state/trivia.effects';
 import { _triviaReducer } from './state/trivia.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { quizzReducer } from './state/Quizz/quizz.reducer';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio'
+import { answerReducer } from './state/Answers/answer.reducer';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,15 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({trivia: _triviaReducer,  quizz: quizzReducer}),
+    StoreModule.forRoot({trivia: _triviaReducer,  quizz: quizzReducer, answer: answerReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([TriviaEffects]),
     BrowserAnimationsModule,
     FormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

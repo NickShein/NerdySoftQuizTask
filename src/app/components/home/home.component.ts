@@ -10,6 +10,7 @@ import { AppStateModel } from 'src/app/state/global/app.state';
 import { triviaModel } from 'src/app/state/trivia.model';
 import { TriviaQuestion } from 'src/app/interfaces/triviaquestion';
 import { gettrivia } from 'src/app/state/trivia.selectors';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +25,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppStateModel>,
-    private triviaService: TriviaService,
-    private generatingQuizzService: GeneratingQuizzService
+    private generatingQuizzService: GeneratingQuizzService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,8 +43,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     }));
   }
 
-  PlayQuizz(id:number) {
-    
+  playQuizz(id:number) {
+    this.router.navigate(['/play', id]);
   }
 
   ngOnDestroy(): void {

@@ -1,1 +1,24 @@
-<p>play works!</p>
+<h1 class="category" [innerHTML]="categorizedArrays[currentQuestionNumber].category"></h1>
+<div class="mat-card-container">
+    <mat-card class="quiz-card">
+        <mat-card-header class="header">
+          <mat-card-title class="title">
+            Question {{ currentQuestionNumber + 1 }} of {{ QuestionsAmount }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2 class="question" [innerHTML]="categorizedArrays[currentQuestionNumber].question"></h2>
+          <div class="options" [formControl]="questionControl">
+            <button
+              *ngFor="let option of options"
+              mat-button
+              [ngClass]="{'selected': option === selectedOption}"
+              (click)="setOptionAndProceed(option)"
+              class="option"
+            >
+            <span [innerHTML]="option"></span>
+            </button>
+          </div>
+        </mat-card-content>
+    </mat-card>
+</div>
