@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio'
 import { answerReducer } from './state/Answers/answer.reducer';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { answerReducer } from './state/Answers/answer.reducer';
     MatCardModule,
     MatButtonModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

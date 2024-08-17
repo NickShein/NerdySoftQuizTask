@@ -26,7 +26,7 @@ export class FinishComponent implements OnInit {
         this.answerPoint = this.calculateAnswersPoints(array);
         console.log(this.calculateQuizzTime(array));
         this.timeInSeconds = Math.floor(this.calculateQuizzTime(array)/1000) + 1;
-        this.maxQuestionSpentTime = this.getMaxSecondsSpent(array);
+        this.maxQuestionSpentTime = (this.getMaxSecondsSpent(array)/1000);
         this.longestSerie = this.longestCorrectAnswerStreak(array);
       })
     );

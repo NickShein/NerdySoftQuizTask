@@ -1,6 +1,35 @@
 .container{
+  position: relative;
     background: #111111;
     padding: 20px 0;
+}
+
+.luck-btn-container{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: transparent; /* Можна налаштувати колір під свій дизайн */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0px 2px 10px rgba(255, 191, 0, 0.3);
+}
+
+.clover-img{
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+.luck-btn-container h2{
+  margin: 0;
+  padding: 0;
+  line-height: 10px;
+  font-size: 24px;
 }
 
 .custom-card {

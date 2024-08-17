@@ -11,6 +11,7 @@ import { triviaModel } from 'src/app/state/trivia.model';
 import { TriviaQuestion } from 'src/app/interfaces/triviaquestion';
 import { gettrivia } from 'src/app/state/trivia.selectors';
 import { Route, Router } from '@angular/router';
+import { PlayAuthService } from 'src/app/services/guards/play-auth.service';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<AppStateModel>,
     private generatingQuizzService: GeneratingQuizzService,
-    private router: Router
+    private router: Router,
+    private playAuthService: PlayAuthService
   ) {}
 
   ngOnInit(): void {
@@ -43,8 +45,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     }));
   }
 
+  PlayRandomQuizz(){
+    let randomQuizzId = Math.floor(Math.random() * this.categorizedArrays.length);
+    this.playQuizz(randomQuizzId);
+  }
+
   playQuizz(id:number) {
+    this.startQuizz();
     this.router.navigate(['/play', id]);
+  }
+
+  startQuizz(){ // let guard open page with currently empty data
+    this.playAuthService.playQuizz();
   }
 
   ngOnDestroy(): void {

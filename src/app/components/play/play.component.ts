@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest, Subscription } from 'rxjs';
 import { TriviaQuestion } from 'src/app/interfaces/triviaquestion';
+import { PlayAuthService } from 'src/app/services/guards/play-auth.service';
 import { updateAnswer } from 'src/app/state/Answers/answer.action';
 import { Answer } from 'src/app/state/Answers/answer.model';
 import { AppStateModel } from 'src/app/state/global/app.state';
@@ -30,7 +31,7 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   questionControl = new FormControl();
 
-  constructor(private route: ActivatedRoute, private store: Store<AppStateModel>, private router: Router) { }
+  constructor(private route: ActivatedRoute, private store: Store<AppStateModel>, private router: Router, private playAuthService: PlayAuthService) { }
 
   ngOnInit(): void {
     this.timeStart = new Date();
@@ -50,7 +51,7 @@ export class PlayComponent implements OnInit, OnDestroy {
       this.options = [
         ...this.categorizedArrays[this.currentQuestionNumber].incorrect_answers,
         this.categorizedArrays[this.currentQuestionNumber].correct_answer
-      ];
+      ].sort(()=>Math.random()-0.5);
   }
 
   setOptionAndProceed(option: string): void {
@@ -58,6 +59,7 @@ export class PlayComponent implements OnInit, OnDestroy {
       this.countRightAnswersAndPoints(option);
       this.store.dispatch(updateAnswer({ answersArray: this.answers }));
       this.router.navigate(['/finish']);
+      this.playAuthService.finishQuizz();
     }
     else{
     this.selectedOption = option; // Set the selected option

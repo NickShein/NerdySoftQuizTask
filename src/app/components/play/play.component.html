@@ -1,4 +1,7 @@
-<h1 class="category" [innerHTML]="categorizedArrays[currentQuestionNumber].category"></h1>
+<div class="category">
+  <div class="category-title" [innerHTML]="categorizedArrays[currentQuestionNumber].category"></div>
+  <button mat-button class="home-btn"><mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Homepage</button>
+</div>
 <div class="mat-card-container">
     <mat-card class="quiz-card">
         <mat-card-header class="header">
