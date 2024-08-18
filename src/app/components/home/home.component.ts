@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   triviaslist!: triviaModel[];
   categorizedArrays!: TriviaQuestion[][];
   private subscriptions: Subscription = new Subscription();
+  isLoadedData: boolean = false;
 
   constructor(
     private store: Store<AppStateModel>,
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(this.store.select(getCategorizedQuizz).subscribe((categorized) => {
       this.categorizedArrays = categorized || [];
+      this.isLoadedData = true;
     }));
   }
 

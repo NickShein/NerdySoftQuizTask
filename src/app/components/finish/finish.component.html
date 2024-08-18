@@ -1,40 +1,31 @@
 <div class="results-container">
-    <h1 class="main-header">Quiz Results</h1>
-    <div class="stats-container">
-      <div class="stat-column">
-        <div class="title">
-            <div class="icon star-icon"></div>
-        <h2 class="category-title"><p>Points</p></h2>
-        </div>
-        <p class="stat-value">{{ answerPoint }}</p>
-      </div>
-      <div class="stat-column">
-        <div class="title">
-            <div class="icon correct-icon"></div>
-        <h2 class="category-title"><p>Correct Answers</p></h2>
-        </div>
-        <p class="stat-value">{{ correctAnswers }}</p>
-      </div>
-      <div class="stat-column">
-        <div class="title">
-            <div class="icon clock-icon"></div>
-        <h2 class="category-title"><p>Time Spent</p></h2>
-        </div>
-        <p class="stat-value">{{ timeInSeconds }} s</p>
-      </div>
-      <div class="stat-column">
-        <div class="title">
-            <div class="icon time-icon"></div>
-            <h2 class="category-title"><p>Longest Time on a Question</p></h2>
-        </div>
-        <p class="stat-value">{{ maxQuestionSpentTime }} s</p>
-      </div>
-      <div class="stat-column">
-        <div class="title">
-            <div class="icon streak-icon"></div>
-        <h2 class="category-title"><p>Longest Streak</p></h2>
-        </div>
-        <p class="stat-value">{{ longestSerie }}</p>
-      </div>
-    </div>
+  <h1 class="main-header">Quiz Results</h1>
+  <div class="stats-container">
+    <app-stat-column 
+      iconClass="star-icon" 
+      title="Points" >
+      {{answerPoint}}
+    </app-stat-column>
+    <app-stat-column 
+      iconClass="correct-icon" 
+      title="Correct Answers">
+      {{correctAnswers}}
+    </app-stat-column>
+    <app-stat-column 
+      iconClass="clock-icon" 
+      title="Time Spent on a Quizz" >
+      {{timeInSeconds | number : '1.2-2'}} s
+    </app-stat-column>
+    <app-stat-column 
+      iconClass="time-icon" 
+      title="Longest Time on a Question" >
+      {{maxQuestionSpentTime | number : '1.2-2'}} s
+    </app-stat-column>
+    <app-stat-column 
+      iconClass="streak-icon" 
+      title="Longest Streak">
+      {{longestSerie}}
+    </app-stat-column>
   </div>
+  <button mat-button class="home-btn" [routerLink]="['/']"><mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="undo"></mat-icon>Back To Homepage</button>
+</div>

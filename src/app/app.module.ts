@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PlayComponent } from './components/play/play.component';
 import { FinishComponent } from './components/finish/finish.component';
+import { StatColumnComponent } from './components/finish/StatColumn/stat-column.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,6 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio'
 import { answerReducer } from './state/Answers/answer.reducer';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     PlayComponent,
     FinishComponent,
+    StatColumnComponent,
+    ErrorComponent
     
   ],
   imports: [
@@ -42,7 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

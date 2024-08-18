@@ -1,4 +1,8 @@
 .category {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   position: relative;
   text-align: center;
   font-size: 48px;
@@ -11,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+  height: 800px;
   background: black !important;
 }
 
@@ -22,9 +26,6 @@
 }
 
 .home-btn {
-  position: absolute;
-  top: 30px;
-  left: 20px;
   padding: 30px;
   background-color: transparent; /* Можна налаштувати колір під свій дизайн */
   color: black;
@@ -32,12 +33,14 @@
   border-radius: 5px;
   border: solid 1px black;
   font-size: 36px;
+  margin-right: 20px;
+  min-width: 185px;
   cursor: pointer;
 }
 
 .quiz-card {
   width: 80%;
-  height: 600px;
+  height: auto;
   background: linear-gradient(60deg, rgb(253, 217, 217), rgb(243, 155, 155));
 }
 
@@ -64,20 +67,6 @@
   margin: 20px auto;
   text-align: center !important;
 }
-
-// .options{
-//     display: grid;
-//     grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
-//     gap: 40px 20px;
-//     margin: 150px auto;
-// }
-
-// .option{
-//     text-align: center !important;
-//     background: rgb(52, 52, 52) !important;
-//     padding: 25px 0;
-//     border-radius: 15px;
-// }
 
 ::ng-deep .mdc-form-field > label {
   font-size: 36px !important;
@@ -147,4 +136,82 @@
 
 .option.selected {
   background-color: #ff4040; /* Колір вибраного варіанту */
+}
+
+@media (max-width: 1300px){
+  .home-icon {
+    height: 26px;
+    width: 26px;
+    font-size: 26px;
+  }
+  
+  .home-btn{
+    font-size: 26px;
+  }
+
+  .category {
+    font-size: 30px;
+}
+}
+
+@media (max-width: 930px){
+
+  .mat-card-container{
+  height: 1100px;
+  align-items:flex-start
+  }
+
+  .home-icon {
+    height: 18px;
+    width: 18px;
+    font-size: 18px;
+  }
+  
+  .home-btn{
+    font-size: 18px;
+  }
+
+  .category {
+    line-height: 30px;
+  }
+
+  .quiz-card{
+    margin-top: 50px;
+    width: 95%;
+  }
+
+  .option{
+    padding: 60px 0 !important;
+    line-height: 36px !important;
+  }
+
+  .options{
+    margin: 50px auto;
+  }
+}
+
+@media (max-width: 650px){
+  .home-btn{
+    padding: 5px;
+    min-width: 100px;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+
+  .home-icon {
+    height: 18px;
+    width: 18px;
+    font-size: 18px;
+  }
+
+  .options{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .quiz-card{
+    width: 98%;
+  }
+
 }

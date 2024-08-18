@@ -1,89 +1,55 @@
 .results-container {
-    text-align: center;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1600px;
-    height: 800px;
-    margin: 20px auto;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1600px;
+  height: 800px;
+  margin: 20px auto;
 }
 
 .main-header {
-    font-size: 4.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
 }
 
 .stats-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }
 
-.stat-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: #f8f9fc;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    height: 700px;
+.home-btn{
+    font-size: 32px;
+    margin-top: 50px;
 }
 
-.icon {
-    width: 100px;
-    height: 100px;
-    margin: 10px auto 0;
+@media (max-width: 1340px) {
+    .results-container{
+        max-width: 1000px;
+        height: 600px;
+        
+    }
+
 }
 
-.stat-column h2 {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 10px;
+@media (max-width: 768px) {
+    .results-container{
+        max-width: none;
+        height: auto;
+    }
+
+    .stats-container{
+        flex-direction: column;
+    }
 }
 
-.stat-value {
-    font-size: 3.5rem;
-    color: #393939;
-    font-weight: bold;
-    padding-bottom: 36px;
-}
-
-.star-icon {
-    background: url('../../../assets/icons/star.png') no-repeat center;
-    background-size: contain;
-}
-
-.clock-icon {
-    background: url('../../../assets/icons/clock.png') no-repeat center;
-    background-size: contain;
-}
-
-.streak-icon {
-    background: url('../../../assets/icons/fire.png') no-repeat center;
-    background-size: contain;
-}
-
-.correct-icon {
-    background: url('../../../assets/icons/checked.png') no-repeat center;
-    background-size: contain;
-}
-
-.time-icon {
-    background: url('../../../assets/icons/turtle.png') no-repeat center;
-    background-size: contain;
-}
-
-.category-title{
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem !important;
-    line-height: 3.5rem !important;
+@media (max-width: 480px){
+    .results-container{
+        margin: 0;
+        padding: 0;
+    }
 }

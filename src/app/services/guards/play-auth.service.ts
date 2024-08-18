@@ -6,22 +6,24 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class PlayAuthService {
   isPlayed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  isQuizzfinished$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isFinished$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor() { }
 
   playQuizz(){
     this.isPlayed$.next(true);
+    this.isFinished$.next(false);
   }
 
-  isStartedQuizz(): boolean{
+  isActiveQuizz(): boolean{
     return this.isPlayed$.value;
   }
 
-  finishQuizz(){
-    this.isQuizzfinished$.next(true);
+  isFinishedQuizz(): boolean{
+    return this.isFinished$.value;
   }
 
-  isQuizzEnded(): boolean{
-    return this.isQuizzfinished$.value;
+  finishQuizz(){
+    this.isPlayed$.next(false);
+    this.isFinished$.next(true);
   }
 }
