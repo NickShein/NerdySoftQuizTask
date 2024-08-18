@@ -7,13 +7,13 @@ export interface AnswersState {
 }
 
 export const answerState: AnswersState = {
-    answersArray: [],
+  answersArray: [],
 };
 
 export const answerReducer = createReducer(
-    answerState,
+  answerState,
   on(updateAnswer, (state, { answersArray }) => ({
     ...state,
-    answersArray: answersArray
-  }))
+    answersArray: answersArray,
+  })),
 );

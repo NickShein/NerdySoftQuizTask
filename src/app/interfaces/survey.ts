@@ -1,4 +1,4 @@
 export interface Survey {
-    category: string;
-    questionCount: number;
-  }
+  category: string;
+  questionCount: number;
+}

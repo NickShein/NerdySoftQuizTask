@@ -18,7 +18,7 @@ import { quizzReducer } from './state/Quizz/quizz.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
 import { answerReducer } from './state/Answers/answer.reducer';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -31,14 +31,17 @@ import { ErrorComponent } from './components/error/error.component';
     PlayComponent,
     FinishComponent,
     StatColumnComponent,
-    ErrorComponent
-    
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({trivia: _triviaReducer,  quizz: quizzReducer, answer: answerReducer}),
+    StoreModule.forRoot({
+      trivia: _triviaReducer,
+      quizz: quizzReducer,
+      answer: answerReducer,
+    }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([TriviaEffects]),
     BrowserAnimationsModule,
@@ -48,9 +51,9 @@ import { ErrorComponent } from './components/error/error.component';
     MatRadioModule,
     ReactiveFormsModule,
     MatIconModule,
-    CommonModule 
+    CommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

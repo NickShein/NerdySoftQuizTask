@@ -7,7 +7,10 @@ export const LOAD_TRIVIA_FAILURE = '[Trivia] Load Trivias Failure';
 
 export const loadTrivias = createAction(LOAD_TRIVIA);
 export const loadTriviasSuccess = createAction(
-    LOAD_TRIVIA_SUCCESS,
-  props<{ triviaslist: triviaModel[] }>()
+  LOAD_TRIVIA_SUCCESS,
+  props<{ triviaslist: triviaModel[] }>(),
 );
-export const loadTriviasFailure = createAction(LOAD_TRIVIA_FAILURE, props<{ error: any }>());
+export const loadTriviasFailure = createAction(
+  LOAD_TRIVIA_FAILURE,
+  props<{ error: any }>(),
+);

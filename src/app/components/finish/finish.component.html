@@ -1,31 +1,29 @@
 <div class="results-container">
   <h1 class="main-header">Quiz Results</h1>
   <div class="stats-container">
-    <app-stat-column 
-      iconClass="star-icon" 
-      title="Points" >
-      {{answerPoint}}
+    <app-stat-column iconClass="star-icon" title="Points">
+      {{ answerPoint }}
     </app-stat-column>
-    <app-stat-column 
-      iconClass="correct-icon" 
-      title="Correct Answers">
-      {{correctAnswers}}
+    <app-stat-column iconClass="correct-icon" title="Correct Answers">
+      {{ correctAnswers }}
     </app-stat-column>
-    <app-stat-column 
-      iconClass="clock-icon" 
-      title="Time Spent on a Quizz" >
-      {{timeInSeconds | number : '1.2-2'}} s
+    <app-stat-column iconClass="clock-icon" title="Time Spent on a Quizz">
+      {{ timeInSeconds | number: "1.2-2" }} s
     </app-stat-column>
-    <app-stat-column 
-      iconClass="time-icon" 
-      title="Longest Time on a Question" >
-      {{maxQuestionSpentTime | number : '1.2-2'}} s
+    <app-stat-column iconClass="time-icon" title="Longest Time on a Question">
+      {{ maxQuestionSpentTime | number: "1.2-2" }} s
     </app-stat-column>
-    <app-stat-column 
-      iconClass="streak-icon" 
-      title="Longest Streak">
-      {{longestSerie}}
+    <app-stat-column iconClass="streak-icon" title="Longest Streak">
+      {{ longestSerie }}
     </app-stat-column>
   </div>
-  <button mat-button class="home-btn" [routerLink]="['/']"><mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="undo"></mat-icon>Back To Homepage</button>
+  <button mat-button class="home-btn" [routerLink]="['/']">
+    <mat-icon
+      class="home-icon"
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="undo"
+    ></mat-icon
+    >Back To Homepage
+  </button>
 </div>

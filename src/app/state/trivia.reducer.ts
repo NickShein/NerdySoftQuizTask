@@ -11,11 +11,11 @@ export const _triviaReducer = createReducer(
   on(loadTrivias, (state) => ({ ...state })),
   on(loadTriviasSuccess, (state, action) => ({
     ...state,
-    triviaslist: [...action.triviaslist]
+    triviaslist: [...action.triviaslist],
   })),
   on(loadTriviasFailure, (state, { error }) => ({
     ...state,
     loading: false,
     error,
-  }))
+  })),
 );

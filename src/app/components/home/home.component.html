@@ -1,19 +1,40 @@
 <div *ngIf="!isLoadedData" class="loading">Loading Data</div>
-<div *ngIf="isLoadedData"><div class="container">
-  <mat-card class="custom-card" *ngFor="let item of categorizedArrays;let i = index">
-    <mat-card-header>
-      <mat-card-title class="title"><span [innerHTML]="i==9?'Mixed':item[1].category"></span></mat-card-title>
-      <mat-card-subtitle class="subtitle">Amount of questions in the quizz: <span class="color_text">{{item.length}}</span></mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <!-- Тут можна додати вміст картки -->
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="warn" class="play-button" (click)="playQuizz(i)">Play Quizz</button>
-    </mat-card-actions>
-  </mat-card>
-  <div class="luck-btn-container" (click)="PlayRandomQuizz()">
-    <img src="../../../assets/icons/clover.png" alt="clover picture" class="clover-img">
-    <h2>I`m Lucky!</h2>
+<div *ngIf="isLoadedData">
+  <div class="container">
+    <mat-card
+      class="custom-card"
+      *ngFor="let item of categorizedArrays; let i = index"
+    >
+      <mat-card-header>
+        <mat-card-title class="title"
+          ><span [innerHTML]="i == 9 ? 'Mixed' : item[1].category"></span
+        ></mat-card-title>
+        <mat-card-subtitle class="subtitle"
+          >Amount of questions in the quizz:
+          <span class="color_text">{{ item.length }}</span></mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <!-- Тут можна додати вміст картки -->
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="warn"
+          class="play-button"
+          (click)="playQuizz(i)"
+        >
+          Play Quizz
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <div class="luck-btn-container" (click)="PlayRandomQuizz()">
+      <img
+        src="../../../assets/icons/clover.png"
+        alt="clover picture"
+        class="clover-img"
+      />
+      <h2>I`m Lucky!</h2>
+    </div>
   </div>
-</div></div>
+</div>

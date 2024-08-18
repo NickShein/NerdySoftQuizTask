@@ -22,34 +22,32 @@
   gap: 15px;
 }
 
-.home-btn{
-    font-size: 32px;
-    margin-top: 50px;
+.home-btn {
+  font-size: 32px;
+  margin-top: 50px;
 }
 
 @media (max-width: 1340px) {
-    .results-container{
-        max-width: 1000px;
-        height: 600px;
-        
-    }
-
+  .results-container {
+    max-width: 1000px;
+    height: 600px;
+  }
 }
 
 @media (max-width: 768px) {
-    .results-container{
-        max-width: none;
-        height: auto;
-    }
+  .results-container {
+    max-width: none;
+    height: auto;
+  }
 
-    .stats-container{
-        flex-direction: column;
-    }
+  .stats-container {
+    flex-direction: column;
+  }
 }
 
-@media (max-width: 480px){
-    .results-container{
-        margin: 0;
-        padding: 0;
-    }
+@media (max-width: 480px) {
+  .results-container {
+    margin: 0;
+    padding: 0;
+  }
 }

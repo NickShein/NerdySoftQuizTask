@@ -1,16 +1,16 @@
-.error-dscr{
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(96, 84, 108);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h1{
-        font-size: 46px;
-        line-height: 46px;
-        .wrong-word{
-            color: rgb(89, 1, 1);
-            font-weight: 700;
-        }
+.error-dscr {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(96, 84, 108);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 46px;
+    line-height: 46px;
+    .wrong-word {
+      color: rgb(89, 1, 1);
+      font-weight: 700;
     }
+  }
 }

@@ -16,10 +16,9 @@ import { PlayAuthService } from 'src/app/services/guards/play-auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-
   triviaslist!: triviaModel[];
   categorizedArrays!: TriviaQuestion[][];
   private subscriptions: Subscription = new Subscription();
@@ -29,35 +28,47 @@ export class HomeComponent implements OnInit, OnDestroy {
     private store: Store<AppStateModel>,
     private generatingQuizzService: GeneratingQuizzService,
     private router: Router,
-    private playAuthService: PlayAuthService
+    private playAuthService: PlayAuthService,
   ) {}
 
   ngOnInit(): void {
     this.store.dispatch(loadTrivias());
 
-    this.subscriptions.add(this.store.select(gettrivia).subscribe((trivias) => {
-      this.triviaslist = trivias;
-      this.categorizedArrays = this.generatingQuizzService.getSortedCategorizedQuestions(this.triviaslist);
-      this.store.dispatch(categorizeQuizz({ categorizedArrays: this.categorizedArrays }));
-    }));
+    this.subscriptions.add(
+      this.store.select(gettrivia).subscribe((trivias) => {
+        this.triviaslist = trivias;
+        this.categorizedArrays =
+          this.generatingQuizzService.getSortedCategorizedQuestions(
+            this.triviaslist,
+          );
+        this.store.dispatch(
+          categorizeQuizz({ categorizedArrays: this.categorizedArrays }),
+        );
+      }),
+    );
 
-    this.subscriptions.add(this.store.select(getCategorizedQuizz).subscribe((categorized) => {
-      this.categorizedArrays = categorized || [];
-      this.isLoadedData = true;
-    }));
+    this.subscriptions.add(
+      this.store.select(getCategorizedQuizz).subscribe((categorized) => {
+        this.categorizedArrays = categorized || [];
+        this.isLoadedData = true;
+      }),
+    );
   }
 
-  PlayRandomQuizz(){
-    let randomQuizzId = Math.floor(Math.random() * this.categorizedArrays.length);
+  PlayRandomQuizz() {
+    let randomQuizzId = Math.floor(
+      Math.random() * this.categorizedArrays.length,
+    );
     this.playQuizz(randomQuizzId);
   }
 
-  playQuizz(id:number) {
+  playQuizz(id: number) {
     this.startQuizz();
     this.router.navigate(['/play', id]);
   }
 
-  startQuizz(){ // let guard open page with currently empty data
+  startQuizz() {
+    // let guard open page with currently empty data
     this.playAuthService.playQuizz();
   }
 

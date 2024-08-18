@@ -5,10 +5,10 @@ export const getQuizzState = createFeatureSelector<QuizzState>('quizz');
 
 export const getCategorizedQuizz = createSelector(
   getQuizzState,
-  (state) => state.categorizedArrays
+  (state) => state.categorizedArrays,
 );
 
 export const getFirst10Categories = createSelector(
   getCategorizedQuizz,
-  (categorizedArrays) => categorizedArrays
+  (categorizedArrays) => categorizedArrays,
 );

@@ -14,6 +14,6 @@ export const quizzReducer = createReducer(
   initialState,
   on(categorizeQuizz, (state, { categorizedArrays }) => ({
     ...state,
-    categorizedArrays
-  }))
+    categorizedArrays,
+  })),
 );

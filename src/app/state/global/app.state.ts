@@ -1,3 +1,3 @@
-export interface AppStateModel{
-    IsLoaded:boolean,
+export interface AppStateModel {
+  IsLoaded: boolean;
 }
