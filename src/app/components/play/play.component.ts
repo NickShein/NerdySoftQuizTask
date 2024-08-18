@@ -69,17 +69,18 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   setOptionAndProceed(option: string): void {
     if (this.currentQuestionNumber == this.QuestionsAmount - 1) {
-      this.calculatingService.countRightAnswersAndPoints(option, this.categorizedArrays, this.currentQuestionNumber, this.answers, this.timeEnd, this.timeStart);
+      this.calculatingService.countRightAnswersAndPoints(option, this.categorizedArrays, this.currentQuestionNumber, this.answers, this.timeStart);
       this.store.dispatch(updateAnswer({ answersArray: this.answers }));
       this.playAuthService.finishQuizz();
 
       this.router.navigate(['/finish']);
     } else {
       this.selectedOption = option; // Set the selected option
-      this.calculatingService.countRightAnswersAndPoints(option, this.categorizedArrays, this.currentQuestionNumber, this.answers, this.timeEnd, this.timeStart);
+      this.calculatingService.countRightAnswersAndPoints(option, this.categorizedArrays, this.currentQuestionNumber, this.answers, this.timeStart);
       this.currentQuestionNumber++;
       this.updateQuestion();
     }
+    this.timeStart = new Date();
   }
 
 

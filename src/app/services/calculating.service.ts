@@ -50,11 +50,10 @@ export class CalculatingService {
     return maxStreak;
   }
 
-  countRightAnswersAndPoints(answer: string, arrays:TriviaQuestion[], currentQuestionNumber: number, answers: Answer[], timeEnd: Date, timeStart: Date): void {
+  countRightAnswersAndPoints(answer: string, arrays:TriviaQuestion[], currentQuestionNumber: number, answers: Answer[], timeStart: Date): void {
     let correctAnswer =
       arrays[currentQuestionNumber].correct_answer;
     let point = 0;
-    timeEnd = new Date();
 
     if (answer == correctAnswer) {
       let point = 1;
@@ -70,7 +69,7 @@ export class CalculatingService {
         correct_answer: correctAnswer,
         isCorrect: true,
         secondsSpent: this.getDifferenceInMiliseconds(
-          timeEnd,
+          new Date(),
           timeStart,
         ),
         points: point,
@@ -81,7 +80,7 @@ export class CalculatingService {
         correct_answer: correctAnswer,
         isCorrect: false,
         secondsSpent: this.getDifferenceInMiliseconds(
-          timeEnd,
+          new Date(),
           timeStart,
         ),
         points: point,
@@ -90,6 +89,8 @@ export class CalculatingService {
     
     timeStart = new Date();
   }
+
+
 
   calculatePoints(array: Answer[]) {
     return array.reduce((totalScore, answer) => {
