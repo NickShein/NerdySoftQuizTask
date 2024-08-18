@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { combineLatest, Subscription } from 'rxjs';
+import { CalculatingService } from 'src/app/services/calculating.service';
 import { Answer } from 'src/app/state/Answers/answer.model';
 import { AnswersState } from 'src/app/state/Answers/answer.reducer';
 import { updateAnswersArray } from 'src/app/state/Answers/answer.selector';
@@ -16,63 +17,24 @@ export class FinishComponent implements OnInit {
   timeInSeconds: number = 0;
   maxQuestionSpentTime: number = 0;
   longestSerie: number = 0;
+
+  private readonly milisecondsDivider: number = 1000;
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private store: Store<AnswersState>) {}
+  constructor(private store: Store<AnswersState>, private calculatingService: CalculatingService) {}
 
   ngOnInit(): void {
     this.subscriptions.add(
       this.store.select(updateAnswersArray).subscribe((array) => {
-        this.correctAnswers = this.calculateCorrectAnswers(array);
-        this.answerPoint = this.calculateAnswersPoints(array);
-        console.log(this.calculateQuizzTime(array));
-        this.timeInSeconds = this.calculateQuizzTime(array) / 1000;
-        this.maxQuestionSpentTime = this.getMaxSecondsSpent(array) / 1000;
-        this.longestSerie = this.longestCorrectAnswerStreak(array);
+        this.correctAnswers = this.calculatingService.calculateCorrectAnswers(array);
+        this.answerPoint = this.calculatingService.calculateAnswersPoints(array);
+        this.timeInSeconds = this.calculatingService.calculateQuizzTime(array) / this.milisecondsDivider;
+        this.maxQuestionSpentTime = this.calculatingService.getMaxSecondsSpent(array) / this.milisecondsDivider;
+        this.longestSerie = this.calculatingService.longestCorrectAnswerStreak(array);
       }),
     );
   }
 
-  calculateCorrectAnswers(array: Answer[]) {
-    return array.filter((answer) => answer.isCorrect).length;
-  }
-
-  calculateAnswersPoints(array: Answer[]) {
-    return array.reduce((acumulator, answer) => {
-      return acumulator + answer.points;
-    }, 0);
-  }
-
-  calculateQuizzTime(array: Answer[]) {
-    return array.reduce((acumulator, answer) => {
-      return acumulator + answer.secondsSpent;
-    }, 0);
-  }
-
-  getMaxSecondsSpent(answers: Answer[]): number {
-    if (answers.length) {
-      return Math.max(...answers.map((answer) => answer.secondsSpent));
-    }
-    return 0;
-  }
-
-  longestCorrectAnswerStreak(answers: Answer[]): number {
-    let maxStreak = 0;
-    let currentStreak = 0;
-
-    for (const answer of answers) {
-      if (answer.isCorrect) {
-        currentStreak++;
-        if (currentStreak > maxStreak) {
-          maxStreak = currentStreak;
-        }
-      } else {
-        currentStreak = 0;
-      }
-    }
-
-    return maxStreak;
-  }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();

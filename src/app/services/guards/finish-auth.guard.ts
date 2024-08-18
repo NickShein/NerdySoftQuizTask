@@ -11,7 +11,6 @@ export function finishAuthGuard(): CanActivateFn {
   return (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const playAuthService: PlayAuthService = inject(PlayAuthService);
     const router: Router = inject(Router);
-    console.log(playAuthService.isActiveQuizz());
 
     if (!playAuthService.isFinishedQuizz()) {
       return router.createUrlTree(['/']);

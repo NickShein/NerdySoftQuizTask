@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { TriviaService } from 'src/app/services/trivia.http.service';
-import { GeneratingQuizzService } from 'src/app/services/generatingQuizz.service';
+import { GeneratingQuizzService } from 'src/app/services/generating-quizz.service';
 import { loadTrivias } from 'src/app/state/trivia.actions';
 import { categorizeQuizz } from 'src/app/state/Quizz/quizz.actions';
 import { getCategorizedQuizz } from 'src/app/state/Quizz/quizz.selectors';
@@ -21,8 +21,10 @@ import { PlayAuthService } from 'src/app/services/guards/play-auth.service';
 export class HomeComponent implements OnInit, OnDestroy {
   triviaslist!: triviaModel[];
   categorizedArrays!: TriviaQuestion[][];
-  private subscriptions: Subscription = new Subscription();
+
   isLoadedData: boolean = false;
+
+  private subscriptions: Subscription = new Subscription();
 
   constructor(
     private store: Store<AppStateModel>,
@@ -37,10 +39,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.store.select(gettrivia).subscribe((trivias) => {
         this.triviaslist = trivias;
+        
         this.categorizedArrays =
           this.generatingQuizzService.getSortedCategorizedQuestions(
             this.triviaslist,
           );
+
         this.store.dispatch(
           categorizeQuizz({ categorizedArrays: this.categorizedArrays }),
         );
@@ -55,10 +59,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
 
-  PlayRandomQuizz() {
+  playRandomQuizz() {
     let randomQuizzId = Math.floor(
       Math.random() * this.categorizedArrays.length,
     );
+    
     this.playQuizz(randomQuizzId);
   }
 

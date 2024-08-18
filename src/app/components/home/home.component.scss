@@ -19,7 +19,7 @@
     180deg,
     rgb(56, 56, 56),
     rgb(120, 120, 120)
-  ); /* Можна налаштувати колір під свій дизайн */
+  );
   color: white;
   text-shadow: 1px 1px 0 black;
   border: none;
@@ -62,7 +62,7 @@
 .custom-card {
   width: 80%;
   margin: 0 auto 40px;
-  background-color: #353535; /* Світло сірий фон */
+  background-color: #353535; 
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
 }
 .title {
@@ -85,7 +85,7 @@
     45deg,
     #ff84b3,
     #ffa601
-  ); /* Помаранчево-рожевий градієнт */
+  );
   color: rgb(227, 243, 246) !important;
   margin-left: auto;
 }
@@ -94,7 +94,7 @@
 }
 
 mat-card-header {
-  background-color: #616161a8; /* Світло сірий фон для заголовка */
+  background-color: #616161a8;
 }
 
 .color_text {

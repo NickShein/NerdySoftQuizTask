@@ -7,6 +7,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class PlayAuthService {
   isPlayed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isFinished$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  
   constructor() {}
 
   playQuizz() {

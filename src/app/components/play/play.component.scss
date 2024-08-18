@@ -27,7 +27,7 @@
 
 .home-btn {
   padding: 30px;
-  background-color: transparent; /* Можна налаштувати колір під свій дизайн */
+  background-color: transparent; 
   color: black;
   border: none;
   border-radius: 5px;
@@ -74,44 +74,6 @@
   color: white !important;
 }
 
-::ng-deep mat-radio-button:hover {
-  cursor: pointer !important;
-}
-
-//radiobutton colors
-::ng-deep
-  .mat-mdc-radio-button
-  .mdc-radio
-  .mdc-radio__native-control:enabled:checked
-  + .mdc-radio__background
-  .mdc-radio__outer-circle {
-  border-color: #ff4040 !important;
-}
-
-::ng-deep
-  .mat-mdc-radio-button
-  .mdc-radio
-  .mdc-radio__native-control:enabled
-  + .mdc-radio__background
-  .mdc-radio__inner-circle {
-  border-color: #ff4040 !important;
-}
-
-::ng-deep .mat-mdc-radio-button {
-  --mdc-radio-selected-focus-icon-color: #ff4040 !important;
-  --mdc-radio-selected-hover-icon-color: ##ff4040 !important;
-  --mdc-radio-selected-icon-color: ##ff4040 !important;
-  --mdc-radio-selected-pressed-icon-color: ##ff4040 !important;
-  --mat-radio-checked-ripple-color: ##ff4040 !important;
-  --mdc-radio-disabled-selected-icon-color: #000 !important;
-  --mdc-radio-disabled-unselected-icon-color: #000 !important;
-  --mdc-radio-unselected-hover-icon-color: #212121 !important;
-  --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54) !important;
-  --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54) !important;
-  --mat-radio-ripple-color: #000 !important;
-  --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38) !important;
-}
-
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
@@ -124,18 +86,18 @@
   background: rgb(52, 52, 52) !important;
   padding: 25px 0 !important;
   border-radius: 15px !important;
-  border: none !important; /* Видалення рамки */
-  color: white !important; /* Колір тексту */
-  font-size: 24px !important; /* Можливо, потрібно змінити шрифт */
-  cursor: pointer !important; /* Зміна курсора на вказівник */
+  border: none !important; 
+  color: white !important;
+  font-size: 24px !important; 
+  cursor: pointer !important;
 }
 
 .option:hover {
-  background-color: #ff4040; /* Колір при наведенні */
+  background-color: #ff4040;
 }
 
 .option.selected {
-  background-color: #ff4040; /* Колір вибраного варіанту */
+  background-color: #ff4040;
 }
 
 @media (max-width: 1300px) {

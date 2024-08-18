@@ -5,7 +5,6 @@ import { TriviaQuestion } from '../interfaces/triviaquestion';
   providedIn: 'root',
 })
 export class GeneratingQuizzService {
-  constructor() {}
   private groupByCategory(
     questions: TriviaQuestion[],
   ): Record<string, TriviaQuestion[]> {
@@ -21,34 +20,34 @@ export class GeneratingQuizzService {
     );
   }
 
-  // Метод для отримання масиву масивів запитань, відсортованих за кількістю елементів у кожній категорії
+  // A method to retrieve an array of arrays of questions sorted by the number of items in each category
   getSortedCategorizedQuestions(
     questions: TriviaQuestion[],
   ): TriviaQuestion[][] {
     const categorized = this.groupByCategory(questions);
 
-    // Перетворюємо об'єкт категорій в масив пар [категорія, запитання]
+    // Convert the category object into an array of pairs [category, question]
     const categorizedArray = Object.entries(categorized);
 
-    // Сортуємо масив за кількістю запитань у кожній категорії
+    // Sort the array by the number of questions in each category
     categorizedArray.sort((a, b) => b[1].length - a[1].length);
 
-    // Перевіряємо, чи більше 10 категорій
+    // Check if there are more than 10 categories
     if (categorizedArray.length > 10) {
-      // Розділяємо на перші 10 категорій та залишкові
+      // Divide into the first 10 categories and the rest
       const topCategories = categorizedArray.slice(0, 9);
       const mixedCategory = categorizedArray
         .slice(9)
         .flatMap((entry) => entry[1]);
 
-      // Додаємо категорію "Mixed" до 10-го масиву
+      // Add the "Mixed" category to the 10th array
       topCategories.push(['Mixed', mixedCategory]);
 
-      // Перетворюємо масив пар назад в масив масивів
+      // Convert the array of pairs back into an array of arrays
       return topCategories.map((entry) => entry[1]);
     }
 
-    // Якщо категорій 10 або менше, просто повертаємо результат
+    // If there are 10 categories or less, just return the result
     return categorizedArray.map((entry) => entry[1]);
   }
 }
